@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 87295efc0ee70f94eb8180eb9f830be5
+guid: 4f9146e70ead36e4c8a07e34c29cdac2
 TextureImporter:
   fileIDToRecycleName: {}
   externalObjects: {}
@@ -45,8 +45,8 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 1.6
-  spriteBorder: {x: 7, y: 7, z: 7, w: 7}
+  spritePixelsToUnits: 1
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -97,7 +97,7 @@ TextureImporter:
     resizeAlgorithm: 0
     textureFormat: 47
     textureCompression: 1
-    compressionQuality: 50
+    compressionQuality: 100
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 1
@@ -108,12 +108,12 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 4218dd220986be445b12c810f2753d50
+    spriteID: 285ae30b0284c0540869dd27e496c31f
     vertices: []
     indices: 
     edges: []
     weights: []
-  spritePackingTag: background
+  spritePackingTag: cards
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
   userData: 
