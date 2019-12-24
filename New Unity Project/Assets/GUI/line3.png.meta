@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 06f9acd434225544db0d7b37665e14b5
+guid: 77d4e5be09518d849b0fe2b8f97ab71e
 TextureImporter:
   fileIDToRecycleName: {}
   externalObjects: {}
@@ -31,22 +31,22 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -100
-    wrapU: 1
-    wrapV: 1
-    wrapW: 1
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
   spriteMode: 1
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 12, y: 10, z: 12, w: 10}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -93,7 +93,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: Android
-    maxTextureSize: 32
+    maxTextureSize: 64
     resizeAlgorithm: 0
     textureFormat: 47
     textureCompression: 1
@@ -108,12 +108,12 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: fc4ba27f256dcf94fb75f3c90c691131
+    spriteID: 451a714848ad7e440b75c9dc67ed4fee
     vertices: []
     indices: 
     edges: []
     weights: []
-  spritePackingTag: background
+  spritePackingTag: sidequest
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
   userData: 
