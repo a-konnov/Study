@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1951e74d3906b194e8787635355e95a2
+guid: 20c4d7a5bec85da48934ec91212277f9
 TextureImporter:
   fileIDToRecycleName: {}
   externalObjects: {}
@@ -42,11 +42,11 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 1
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 1
-  spriteBorder: {x: 218, y: 0, z: 218, w: 0}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 40, y: 38, z: 40, w: 38}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -81,19 +81,8 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
-    buildTarget: iPhone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-  - serializedVersion: 2
     buildTarget: Android
-    maxTextureSize: 512
+    maxTextureSize: 128
     resizeAlgorithm: 0
     textureFormat: 47
     textureCompression: 1
@@ -108,12 +97,12 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 891806e3e2d44bc48be7fbe34cb5c3b8
+    spriteID: a75e3053782d7f949ba0dad0ac52af41
     vertices: []
     indices: 
     edges: []
     weights: []
-  spritePackingTag: sidequest
+  spritePackingTag: friends_lives
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
   userData: 
