@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 [ExecuteInEditMode]
-public class CurvedText : Text
+public class scr : Text
 {
     // Negative radius makes text curve upwards
     public float radius = 0.5f;
