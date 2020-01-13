@@ -172,6 +172,7 @@ GameObject:
   - component: {fileID: 6439233776977853648}
   - component: {fileID: 8102690356260777006}
   - component: {fileID: 5045059428891263614}
+  - component: {fileID: 5914476781667286707}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -235,6 +236,21 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+--- !u!114 &5914476781667286707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1483076452876205248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97bc2ebab6563400c95b036136d26ea6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Inverse: 0
+  m_MaskInteraction: 85
+  m_UseStencil: 0
 --- !u!1 &2336662933317409476
 GameObject:
   m_ObjectHideFlags: 0
@@ -655,8 +671,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 65, y: 65}
+  m_AnchoredPosition: {x: 0.000012398, y: -0.0000047684}
+  m_SizeDelta: {x: 68, y: 68}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6251609785268221633
 CanvasRenderer:
@@ -686,7 +702,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 1f0acd188e04a3446a039f9035ac3404, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7afe163395992e34db434ec3586dd6d6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -704,10 +720,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 6654496831854550860}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -1200242548, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: 385b7d1277b6c4007a84c065696e0f8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ShowMaskGraphic: 1
+  m_ShowMaskGraphic: 0
+  m_DesamplingRate: 0
+  m_Softness: 0.6
+  m_IgnoreParent: 0
+  m_PartOfParent: 0
 --- !u!1 &8854081235449331644
 GameObject:
   m_ObjectHideFlags: 0
