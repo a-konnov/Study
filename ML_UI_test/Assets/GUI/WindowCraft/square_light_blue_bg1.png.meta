@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: fe800ef34b8bd7e409a418346293d228
+guid: f21c1463c4e82d149becaf61f951d15b
 TextureImporter:
   fileIDToRecycleName: {}
   externalObjects: {}
@@ -42,11 +42,11 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 1
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 1
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 286, y: 30, z: 29, w: 69}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -93,7 +93,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: Android
-    maxTextureSize: 128
+    maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: 47
     textureCompression: 1
@@ -108,12 +108,12 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 8a19b5556c60b6d4796aed635638681d
+    spriteID: fa311f9b5593a194fa64533cbcc04483
     vertices: []
     indices: 
     edges: []
     weights: []
-  spritePackingTag: sidequest
+  spritePackingTag: craft_window
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
   userData: 
