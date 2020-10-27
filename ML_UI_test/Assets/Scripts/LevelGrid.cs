@@ -10,11 +10,11 @@ public class LevelGrid : MonoBehaviour
     private int height;
     [SerializeField] public GameObject _food;
 
-    public LevelGrid(int width, int height) {
-        this.width = width;
-        this.height = height;
-        SpawnFood();
-        FunctionPeriodic.Create(SpawnFood, 1f);
+   
+    public void Init() {
+        width = 20;
+        height = 20;
+
     }
     private void SpawnFood() {
         foodGridPosition = new Vector2Int(Random.Range(0, width), Random.Range(0, height));
