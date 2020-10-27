@@ -5,15 +5,15 @@ using UnityEngine;
 public class SnakeMove : MonoBehaviour
 {
     private Vector2Int gridPositon;
-    private float gridMoveTimer;
-    private float gridMoveTimerMax;
+    private float gridMoveTimer; // время оставшееся до следующего движения
+    private float gridMoveTimerMax; // время между ходами
     private Vector2Int gridMoveDirection;
 
     private void Awake()
     {
         gridPositon = new Vector2Int(0, 0);
-        gridMoveTimerMax = 0.5f;
-        gridMoveTimer = gridMoveTimerMax;
+        gridMoveTimerMax = 0.5f; 
+        gridMoveTimer = gridMoveTimerMax; 
         gridMoveDirection = new Vector2Int(1, 0);
     }
 

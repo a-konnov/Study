@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class GameHandler : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private LevelGrid levelGrid;
     void Start()
     {
         Debug.Log("GameStart");
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        levelGrid = new LevelGrid(20, 20);
     }
 }
