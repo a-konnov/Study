@@ -1,2 +1,3 @@
-# ML_UI_test
+# Study
 Training UI
+Learning the code
