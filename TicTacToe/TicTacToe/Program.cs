@@ -5,19 +5,18 @@ namespace TicTacToe {
         private static bool gameRun;
         static char[,] _table;
         private static int moveCount = 0;
-        private static int[] cell;
         private static bool[] occupiedCells;
+        private static int _cellsAmount = 9;
         private static Random rnd;
         
         public static void Main(string[] args) {
             gameRun = true;
             rnd = new Random();
             _table = new char[3, 3];
-            cell = new [] {1, 2, 3, 4, 5, 6, 7, 8, 9};
-            occupiedCells = new bool[cell.Length];
+            occupiedCells = new bool[_cellsAmount];
             GameField();
             
-            while (moveCount <= 9 && gameRun) {
+            while (moveCount <= _cellsAmount && gameRun) {
                 InputPlayer();
             }
             Console.ReadLine();
@@ -92,7 +91,7 @@ namespace TicTacToe {
         
         private static List<int> GetAvailableIndexes() {
             var availableСells = new List<int>();
-            for (var i = 0; i < cell.Length; i++) {
+            for (var i = 0; i < _cellsAmount; i++) {
                 if (!occupiedCells[i]) {
                     availableСells.Add(i);
                 }
@@ -132,7 +131,7 @@ namespace TicTacToe {
                     countOccupiedCell++;
                 }
             }
-            if (countOccupiedCell == 9 && !CheckWin('X') && !CheckWin('O')) {
+            if (countOccupiedCell == _cellsAmount && !CheckWin('X') && !CheckWin('O')) {
                 return true;
             } 
             return false;
