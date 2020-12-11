@@ -1,27 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
+
 namespace TicTacToe {
     internal class Program {
-        private static bool gameRun;
+        private static bool _canInput;
         static char[,] _table;
-        private static int moveCount = 0;
-        private static bool[] occupiedCells;
+        private static int _inputsCount = 0;
+        private static bool[] _occupiedCells;
         private static int _cellsAmount = 9;
-        private static Random rnd;
+        private static Random _randomInput;
         
         public static void Main(string[] args) {
-            gameRun = true;
-            rnd = new Random();
+            _canInput = true;
+            _randomInput = new Random();
             _table = new char[3, 3];
-            occupiedCells = new bool[_cellsAmount];
+            _occupiedCells = new bool[_cellsAmount];
             GameField();
             
-            while (moveCount <= _cellsAmount && gameRun) {
+            while (_inputsCount <= _cellsAmount && _canInput) {
                 InputPlayer();
             }
-            Console.ReadLine();
         }
-        static void GameField() {
+
+        public static void GameField() {
             Console.WriteLine("\t***Крестики - Нолики***");
             Console.WriteLine("- игрок ходит крестиком 'X' \n- для хода использовать цифры на клавиатуре от 1 до 9");
             int index = 1;
@@ -31,6 +32,7 @@ namespace TicTacToe {
                     index++;
                 }
             }
+
             for (int i = 0; i < 3; i++) {
                 for (int j = 0; j < 3; j++) {
                     Console.Write("| " + _table[i, j] + " ");
@@ -39,67 +41,63 @@ namespace TicTacToe {
             }
         } 
         
-        static void InputPlayer() {
+        public static void InputPlayer() {
             Console.WriteLine("Введите номер ячейки:");
             int number = int.Parse(Console.ReadLine());
             if (number > 0 && number < 10) {
                 number -= 1;
                 int column = number % _table.GetLength(0);
                 int row = ((_table.GetLength(0) - 1) - number / _table.GetLength(0));
-                if (!occupiedCells[number]) {
+                if (!_occupiedCells[number]) {
                     _table[row, column] = 'X';
-                    occupiedCells[number] = true;
+                    _occupiedCells[number] = true;
                     RefreshTable(_table);
-                    moveCount++;
+                    _inputsCount++;
                     if (CheckWin('X')) {
                         Console.WriteLine("ВЫ ПОБЕДИЛИ\n");
-                        gameRun = false;
-                    }
-                    else if (CheckDraw()) {
+                        _canInput = false;
+                    } else if (CheckDraw()) {
                         Console.WriteLine("НИЧЬЯ!\n");
-                        gameRun = false;
-                    }
-                    else InputComputer();
-                } else {
-                    Console.WriteLine("ВЫБРАННАЯ ЯЧЕЙКА УЖЕ ИСПОЛЬЗУЕТСЯ. УКАЖИТЕ ПУСТУЮ!\n");
-                }
+                        _canInput = false;
+                    } else InputComputer();
+                } else Console.WriteLine("ВЫБРАННАЯ ЯЧЕЙКА УЖЕ ИСПОЛЬЗУЕТСЯ. УКАЖИТЕ ПУСТУЮ!\n");
             } else {
                 RefreshTable(_table);
                 Console.WriteLine("ВЫ УКАЗАЛИ НЕСУЩЕСТВУЮЩУЮ ЯЧЕЙКУ, ПОВТОРИТЕ ВВОД\n");
-            }
-            
+            }            
         }
         
-        static void InputComputer() {
+        public static void InputComputer() {
             var availableIndexes = GetAvailableIndexes();
-            int randomIndex = availableIndexes[rnd.Next(availableIndexes.Count)];
+            int randomIndex = availableIndexes[_randomInput.Next(availableIndexes.Count)];
             int column = randomIndex % _table.GetLength(0);
             int row = ((_table.GetLength(0) - 1) - randomIndex / _table.GetLength(0));
             _table[row, column] = 'O';
-            occupiedCells[randomIndex] = true;
+            _occupiedCells[randomIndex] = true;
             RefreshTable(_table);
-            moveCount++;
+            _inputsCount++;
+
             if (CheckWin('O')) {
                 Console.WriteLine("ПОБЕДИЛ КОМПЬЮТЕР\n");
-                gameRun = false;
-            }
-            else if (CheckDraw()) {
+                _canInput = false;
+            } else if (CheckDraw()) {
                 Console.WriteLine("НИЧЬЯ!\n");
-                gameRun = false;
+                _canInput = false;
             }
         }
         
-        private static List<int> GetAvailableIndexes() {
+        public static List<int> GetAvailableIndexes() {
             var availableСells = new List<int>();
             for (var i = 0; i < _cellsAmount; i++) {
-                if (!occupiedCells[i]) {
+                if (!_occupiedCells[i]) {
                     availableСells.Add(i);
                 }
             }
+
             return availableСells;
         }
         
-        static void RefreshTable(char[,] array) {
+        public static void RefreshTable(char[,] array) {
             Console.WriteLine();
             Console.Clear();
             Console.WriteLine("\t***Крестики - Нолики***");
@@ -112,28 +110,31 @@ namespace TicTacToe {
             }
         }
         
-        static Boolean CheckWin(char symbol) {
+        public static Boolean CheckWin(char symbol) {
             for (int i = 0; i < 3; i++) {
                 if ((_table[i, 0] == symbol && _table[i, 1] == symbol && _table[i, 2] == symbol) || (_table[0, i] == symbol && _table[1, i] == symbol && _table[2, i] == symbol)) {
                     return true;
                 }
+
                 if ((_table[0, 0] == symbol && _table[1, 1] == symbol && _table[2, 2] == symbol) || (_table[2, 0] == symbol && _table[1, 1] == symbol && _table[0, 2] == symbol)) {
                     return true;
                 }
             }
+
             return false;
         }
 
-        static Boolean CheckDraw() {
+        public static Boolean CheckDraw() {
             int countOccupiedCell = 0;
-            for (int i = 0; i < occupiedCells.Length; i++) {
-                if (occupiedCells[i]) {
+            for (int i = 0; i < _occupiedCells.Length; i++) {
+                if (_occupiedCells[i]) {
                     countOccupiedCell++;
                 }
             }
             if (countOccupiedCell == _cellsAmount && !CheckWin('X') && !CheckWin('O')) {
                 return true;
-            } 
+            }
+
             return false;
         }
     }
