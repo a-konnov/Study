@@ -23,56 +23,64 @@ namespace TicTacToe {
         }
 
         public static void GameField() {
-            Console.WriteLine("\t***Крестики - Нолики***");
-            Console.WriteLine("- игрок ходит крестиком 'X' \n- для хода использовать цифры на клавиатуре от 1 до 9");
+            Console.WriteLine("\t***Крестики - Нолики***\n- игрок ходит крестиком 'X' \n- для хода использовать цифры на клавиатуре от 1 до 9");
             int index = 1;
             for (int i = 0; i < 3; i++) {
                 for (int j = 2; j >= 0; j--) {
-                    _table[i,j] = (char)(58 - index);
+                    _table[i, j] = (char)(58 - index);
                     index++;
                 }
             }
+            StructureGameField();
+        }
 
+        public static void StructureGameField() {
             for (int i = 0; i < 3; i++) {
                 for (int j = 0; j < 3; j++) {
                     Console.Write("| " + _table[i, j] + " ");
                 }
                 Console.WriteLine("|");
             }
-        } 
-        
+        }
+
         public static void InputPlayer() {
             Console.WriteLine("Введите номер ячейки:");
             int number = int.Parse(Console.ReadLine());
             if (number > 0 && number < 10) {
                 number -= 1;
-                int column = number % _table.GetLength(0);
-                int row = ((_table.GetLength(0) - 1) - number / _table.GetLength(0));
+                var position = CalculatePosition(number);
+
                 if (!_occupiedCells[number]) {
-                    _table[row, column] = 'X';
+                    _table[position.row, position.column] = 'X';
                     _occupiedCells[number] = true;
                     RefreshTable(_table);
                     _inputsCount++;
+
                     if (CheckWin('X')) {
                         Console.WriteLine("ВЫ ПОБЕДИЛИ\n");
                         _canInput = false;
-                    } else if (CheckDraw()) {
+                    }
+                    else if (CheckDraw()) {
                         Console.WriteLine("НИЧЬЯ!\n");
                         _canInput = false;
-                    } else InputComputer();
-                } else Console.WriteLine("ВЫБРАННАЯ ЯЧЕЙКА УЖЕ ИСПОЛЬЗУЕТСЯ. УКАЖИТЕ ПУСТУЮ!\n");
-            } else {
+                    }
+                    else InputComputer();
+
+                }
+                else Console.WriteLine("ВЫБРАННАЯ ЯЧЕЙКА УЖЕ ИСПОЛЬЗУЕТСЯ. УКАЖИТЕ ПУСТУЮ!\n");
+
+            }
+            else {
                 RefreshTable(_table);
                 Console.WriteLine("ВЫ УКАЗАЛИ НЕСУЩЕСТВУЮЩУЮ ЯЧЕЙКУ, ПОВТОРИТЕ ВВОД\n");
-            }            
+            }
         }
-        
+
         public static void InputComputer() {
             var availableIndexes = GetAvailableIndexes();
             int randomIndex = availableIndexes[_randomInput.Next(availableIndexes.Count)];
-            int column = randomIndex % _table.GetLength(0);
-            int row = ((_table.GetLength(0) - 1) - randomIndex / _table.GetLength(0));
-            _table[row, column] = 'O';
+            var position = CalculatePosition(randomIndex);
+            _table[position.row, position.column] = 'O';
             _occupiedCells[randomIndex] = true;
             RefreshTable(_table);
             _inputsCount++;
@@ -80,12 +88,13 @@ namespace TicTacToe {
             if (CheckWin('O')) {
                 Console.WriteLine("ПОБЕДИЛ КОМПЬЮТЕР\n");
                 _canInput = false;
-            } else if (CheckDraw()) {
+            }
+            else if (CheckDraw()) {
                 Console.WriteLine("НИЧЬЯ!\n");
                 _canInput = false;
             }
         }
-        
+
         public static List<int> GetAvailableIndexes() {
             var availableСells = new List<int>();
             for (var i = 0; i < _cellsAmount; i++) {
@@ -96,20 +105,20 @@ namespace TicTacToe {
 
             return availableСells;
         }
-        
-        public static void RefreshTable(char[,] array) {
-            Console.WriteLine();
-            Console.Clear();
-            Console.WriteLine("\t***Крестики - Нолики***");
-            Console.WriteLine("- игрок ходит крестиком 'X' \n- для хода использовать цифры на клавиатуре от 1 до 9");
-            for (int i = 0; i < 3; i++) {
-                for (int j = 0; j < 3; j++) {
-                    Console.Write("| " + _table[i, j] + " ");
-                }
-                Console.WriteLine("|");
-            }
+
+        static (int row, int column) CalculatePosition(int number) {
+            int column = number % _table.GetLength(0);
+            int row = ((_table.GetLength(0) - 1) - number / _table.GetLength(0));
+
+            return (row, column);
         }
-        
+
+        public static void RefreshTable(char[,] array) {
+            Console.Clear();
+            Console.WriteLine("\t***Крестики - Нолики***\n- игрок ходит крестиком 'X' \n- для хода использовать цифры на клавиатуре от 1 до 9");
+            StructureGameField();
+        }
+
         public static Boolean CheckWin(char symbol) {
             for (int i = 0; i < 3; i++) {
                 if ((_table[i, 0] == symbol && _table[i, 1] == symbol && _table[i, 2] == symbol) || (_table[0, i] == symbol && _table[1, i] == symbol && _table[2, i] == symbol)) {
@@ -131,6 +140,7 @@ namespace TicTacToe {
                     countOccupiedCell++;
                 }
             }
+
             if (countOccupiedCell == _cellsAmount && !CheckWin('X') && !CheckWin('O')) {
                 return true;
             }
