@@ -59,10 +59,12 @@ namespace TicTacToe {
                     if (CheckWin('X')) {
                         Console.WriteLine("ВЫ ПОБЕДИЛИ\n");
                         _canInput = false;
+                        return;
                     }
                     else if (CheckDraw()) {
                         Console.WriteLine("НИЧЬЯ!\n");
                         _canInput = false;
+                        return;
                     }
                     else InputComputer();
 
@@ -141,7 +143,7 @@ namespace TicTacToe {
                 }
             }
 
-            if (countOccupiedCell == _cellsAmount && !CheckWin('X') && !CheckWin('O')) {
+            if (countOccupiedCell == _cellsAmount ) {
                 return true;
             }
 
