@@ -1,0 +1,6 @@
+F:\Рабочий стол\Задачи C#\BinarySearchTree\BinarySearchTree\bin\Debug\BinarySearchTree.exe
+F:\Рабочий стол\Задачи C#\BinarySearchTree\BinarySearchTree\bin\Debug\BinarySearchTree.pdb
+F:\Рабочий стол\Задачи C#\BinarySearchTree\BinarySearchTree\obj\Debug\BinarySearchTree.csprojAssemblyReference.cache
+F:\Рабочий стол\Задачи C#\BinarySearchTree\BinarySearchTree\obj\Debug\BinarySearchTree.csproj.CoreCompileInputs.cache
+F:\Рабочий стол\Задачи C#\BinarySearchTree\BinarySearchTree\obj\Debug\BinarySearchTree.exe
+F:\Рабочий стол\Задачи C#\BinarySearchTree\BinarySearchTree\obj\Debug\BinarySearchTree.pdb
