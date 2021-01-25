@@ -1,0 +1,6 @@
+F:\Рабочий стол\Задачи C#\AviaTickets\AviaTickets\bin\Debug\AviaTickets.exe
+F:\Рабочий стол\Задачи C#\AviaTickets\AviaTickets\bin\Debug\AviaTickets.pdb
+F:\Рабочий стол\Задачи C#\AviaTickets\AviaTickets\obj\Debug\AviaTickets.csprojAssemblyReference.cache
+F:\Рабочий стол\Задачи C#\AviaTickets\AviaTickets\obj\Debug\AviaTickets.csproj.CoreCompileInputs.cache
+F:\Рабочий стол\Задачи C#\AviaTickets\AviaTickets\obj\Debug\AviaTickets.exe
+F:\Рабочий стол\Задачи C#\AviaTickets\AviaTickets\obj\Debug\AviaTickets.pdb
