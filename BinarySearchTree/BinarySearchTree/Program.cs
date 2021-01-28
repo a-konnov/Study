@@ -39,20 +39,26 @@ namespace BinarySearchTree {
                     return null;
                 }
                 var compareResult = val.CompareTo(tree.value);
-                if (compareResult > 0) {
-                    return Search(tree.right, val);
-                }
-                else if (compareResult < 0) {
-                    return Search(tree.left, val);
-                } else {
+
+                if (compareResult == 0) {
                     return tree;
                 }
+                return Search(compareResult > 0 ? tree.right : tree.left, val);
             }
 
             public bool DeleteNode(T val) {
-                BinaryTree<T> tree = Search(this, val);
-                if(tree == null){
+                var node = Search(this, val);
+                if(node == null){
                     return false;
+                }
+
+                var nodeParent = node.parent;
+                if (node.left == null && node.right == null) {
+                    if (nodeParent != null) {
+                        if (node == nodeParent.left) {
+                            node.parent;
+                        }
+                    }
                 }
             }
         }
