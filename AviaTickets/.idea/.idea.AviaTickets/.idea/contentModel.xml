@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\lexak\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\lexak\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_AviaTickets.357637673.00" t="ExcludeRecursive" />
-    <e p="C:\Users\lexak\AppData\Roaming\JetBrains\Rider2020.2\scratches" t="IncludeRecursive" />
-    <e p="F:\Рабочий стол\Задачи C#\AviaTickets" t="IncludeFlat">
+    <e p="C:\Users\user0014\AppData\Local\JetBrains\Rider2020.3\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\user0014\AppData\Local\JetBrains\Rider2020.3\resharper-host\Local\Transient\Rider\v203\SolutionCaches\_AviaTickets.1512833013.00" t="ExcludeRecursive" />
+    <e p="D:\repo\Study\AviaTickets" t="IncludeFlat">
       <e p="AviaTickets" t="IncludeRecursive">
         <e p="AviaTickets.csproj" t="IncludeRecursive" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="Cities.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive" />
+        <e p="Passenger.cs" t="Include" />
         <e p="Program.cs" t="Include" />
         <e p="Properties" t="Include">
           <e p="AssemblyInfo.cs" t="Include" />
