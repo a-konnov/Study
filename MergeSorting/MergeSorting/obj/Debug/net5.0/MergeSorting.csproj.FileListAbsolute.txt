@@ -1,0 +1,16 @@
+F:\Рабочий стол\Задачи C#\MergeSorting\MergeSorting\bin\Debug\net5.0\MergeSorting.exe
+F:\Рабочий стол\Задачи C#\MergeSorting\MergeSorting\bin\Debug\net5.0\MergeSorting.deps.json
+F:\Рабочий стол\Задачи C#\MergeSorting\MergeSorting\bin\Debug\net5.0\MergeSorting.runtimeconfig.json
+F:\Рабочий стол\Задачи C#\MergeSorting\MergeSorting\bin\Debug\net5.0\MergeSorting.runtimeconfig.dev.json
+F:\Рабочий стол\Задачи C#\MergeSorting\MergeSorting\bin\Debug\net5.0\MergeSorting.dll
+F:\Рабочий стол\Задачи C#\MergeSorting\MergeSorting\bin\Debug\net5.0\ref\MergeSorting.dll
+F:\Рабочий стол\Задачи C#\MergeSorting\MergeSorting\bin\Debug\net5.0\MergeSorting.pdb
+F:\Рабочий стол\Задачи C#\MergeSorting\MergeSorting\obj\Debug\net5.0\MergeSorting.csprojAssemblyReference.cache
+F:\Рабочий стол\Задачи C#\MergeSorting\MergeSorting\obj\Debug\net5.0\MergeSorting.GeneratedMSBuildEditorConfig.editorconfig
+F:\Рабочий стол\Задачи C#\MergeSorting\MergeSorting\obj\Debug\net5.0\MergeSorting.AssemblyInfoInputs.cache
+F:\Рабочий стол\Задачи C#\MergeSorting\MergeSorting\obj\Debug\net5.0\MergeSorting.AssemblyInfo.cs
+F:\Рабочий стол\Задачи C#\MergeSorting\MergeSorting\obj\Debug\net5.0\MergeSorting.csproj.CoreCompileInputs.cache
+F:\Рабочий стол\Задачи C#\MergeSorting\MergeSorting\obj\Debug\net5.0\MergeSorting.dll
+F:\Рабочий стол\Задачи C#\MergeSorting\MergeSorting\obj\Debug\net5.0\ref\MergeSorting.dll
+F:\Рабочий стол\Задачи C#\MergeSorting\MergeSorting\obj\Debug\net5.0\MergeSorting.pdb
+F:\Рабочий стол\Задачи C#\MergeSorting\MergeSorting\obj\Debug\net5.0\MergeSorting.genruntimeconfig.cache
