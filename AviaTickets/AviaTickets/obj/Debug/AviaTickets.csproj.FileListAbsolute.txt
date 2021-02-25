@@ -10,3 +10,9 @@ D:\repo\Study\AviaTickets\AviaTickets\obj\Debug\AviaTickets.csprojAssemblyRefere
 D:\repo\Study\AviaTickets\AviaTickets\obj\Debug\AviaTickets.csproj.CoreCompileInputs.cache
 D:\repo\Study\AviaTickets\AviaTickets\obj\Debug\AviaTickets.exe
 D:\repo\Study\AviaTickets\AviaTickets\obj\Debug\AviaTickets.pdb
+F:\repo\Study\AviaTickets\AviaTickets\bin\Debug\AviaTickets.exe
+F:\repo\Study\AviaTickets\AviaTickets\bin\Debug\AviaTickets.pdb
+F:\repo\Study\AviaTickets\AviaTickets\obj\Debug\AviaTickets.csprojAssemblyReference.cache
+F:\repo\Study\AviaTickets\AviaTickets\obj\Debug\AviaTickets.csproj.CoreCompileInputs.cache
+F:\repo\Study\AviaTickets\AviaTickets\obj\Debug\AviaTickets.exe
+F:\repo\Study\AviaTickets\AviaTickets\obj\Debug\AviaTickets.pdb
