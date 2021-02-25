@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "F:\\Рабочий стол\\Задачи C#\\MergeSorting\\MergeSorting\\MergeSorting.csproj": {}
+    "F:\\repo\\Study\\MergeSorting\\MergeSorting\\MergeSorting.csproj": {}
   },
   "projects": {
-    "F:\\Рабочий стол\\Задачи C#\\MergeSorting\\MergeSorting\\MergeSorting.csproj": {
+    "F:\\repo\\Study\\MergeSorting\\MergeSorting\\MergeSorting.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Рабочий стол\\Задачи C#\\MergeSorting\\MergeSorting\\MergeSorting.csproj",
+        "projectUniqueName": "F:\\repo\\Study\\MergeSorting\\MergeSorting\\MergeSorting.csproj",
         "projectName": "MergeSorting",
-        "projectPath": "F:\\Рабочий стол\\Задачи C#\\MergeSorting\\MergeSorting\\MergeSorting.csproj",
+        "projectPath": "F:\\repo\\Study\\MergeSorting\\MergeSorting\\MergeSorting.csproj",
         "packagesPath": "C:\\Users\\lexak\\.nuget\\packages\\",
-        "outputPath": "F:\\Рабочий стол\\Задачи C#\\MergeSorting\\MergeSorting\\obj\\",
+        "outputPath": "F:\\repo\\Study\\MergeSorting\\MergeSorting\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\lexak\\AppData\\Roaming\\NuGet\\NuGet.Config",

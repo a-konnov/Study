@@ -10,10 +10,10 @@ namespace MergeSorting {
         }
 
         private static int[] a = new int[] {3,7,8,4,5,5,1,7,8,3,9,2};
-        private static int[] _auxArray;
+        private static int[] _auxiliaryArray;
         
         private static void Sorting(int[] array) {
-            _auxArray = new int[array.Length];
+            _auxiliaryArray = new int[array.Length];
             SortingProcess(array, 0, array.Length - 1);
         }
 
@@ -28,25 +28,23 @@ namespace MergeSorting {
 
         private static void Merge(int[] array, int low, int middle, int high) {
             int leftHalfIndex = low;
-            int righHalftIndex = middle + 1;
+            int rightHalfIndex = middle + 1;
             for (int i = low; i <= high ; i++) {
-                _auxArray[i] = array[i];
+                _auxiliaryArray[i] = array[i];
             }
 
             for (int i = low; i <= high; i++) {
                 if (leftHalfIndex > middle) {
-                    a[i] = _auxArray[righHalftIndex];
-                    righHalftIndex++;
-                }
-                else if (righHalftIndex > high) {
-                    a[i] = _auxArray[leftHalfIndex];
+                    a[i] = _auxiliaryArray[rightHalfIndex];
+                    rightHalfIndex++;
+                } else if (rightHalfIndex > high) {
+                    a[i] = _auxiliaryArray[leftHalfIndex];
                     leftHalfIndex++;
-                }
-                else if (_auxArray[righHalftIndex] <= _auxArray[leftHalfIndex]) {
-                    a[i] = _auxArray[righHalftIndex];
-                    righHalftIndex++;
+                } else if (_auxiliaryArray[rightHalfIndex] <= _auxiliaryArray[leftHalfIndex]) {
+                    a[i] = _auxiliaryArray[rightHalfIndex];
+                    rightHalfIndex++;
                 } else {
-                    a[i] = _auxArray[leftHalfIndex];
+                    a[i] = _auxiliaryArray[leftHalfIndex];
                     leftHalfIndex++;
                 }
             }
