@@ -1,0 +1,6 @@
+*.csproj
+
+AviaTickets/.idea
+AviaTickets/AviaTickets/bin
+AviaTickets/AviaTickets/obj
+AviaTickets/AviaTickets/Properties

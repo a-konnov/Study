@@ -1,16 +1,21 @@
 ﻿using System;
+using System.Text;
 
 namespace AviaTickets {
     public class Ticket {
-        public void TicketInfo(string firstName, string secondName, string departure, string destination) {
-            Console.Clear();
-            Console.Write("******************************************************\n");
-            Console.Write("\t\t Данные вашего билета");
-            Console.Write("\n******************************************************\n");
-            Console.Write("******************************************************\n");
-            Console.WriteLine($"Пассажир: {firstName} {secondName} ");
-            Console.WriteLine($"От: {departure} \t До: {destination}");
-            Console.Write("\n******************************************************");
+        private StringBuilder _ticketInfo = new StringBuilder();
+        public string ShowTicketInfo(string firstName, string secondName, string departure, string arrive) {
+            _ticketInfo.Append("******************************************************\n");
+            _ticketInfo.Append("\t\t Данные вашего билета");
+            _ticketInfo.Append("\n******************************************************\n");
+            _ticketInfo.Append("******************************************************\n");
+            _ticketInfo.Append($"Пассажир: {firstName} {secondName} ");
+            _ticketInfo.Append($"От: {departure} \t До: {arrive}");
+            _ticketInfo.Append("\n******************************************************");
+
+            return _ticketInfo.ToString();
         }
+        
+        
     }
 }
