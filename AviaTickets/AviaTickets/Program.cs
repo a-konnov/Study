@@ -11,6 +11,7 @@ namespace AviaTickets {
             UserInterface();
             ShowAllCities();
             SelectRouteCities();
+            InputPassengerData();
             Console.ReadLine();
         }
         private static void UserInterface() {
@@ -44,6 +45,23 @@ namespace AviaTickets {
             new CalculateDistance(_cities.AllCitiesInfo[selectedDepartureNumber - 1].Coordinates.X, _cities.AllCitiesInfo[selectedDepartureNumber - 1].Coordinates.Y, _cities.AllCitiesInfo[selectedArriveNumber - 1].Coordinates.X, _cities.AllCitiesInfo[selectedArriveNumber - 1].Coordinates.Y);
             
             Console.WriteLine(_ticket.ShowTicketInfo("bb", "dd", selectedDepartureCity, selectedArriveCity));
+        }
+
+        private static void InputPassengerData() {
+            EnterPassengerData enterPassengerData = new EnterPassengerData();
+            
+            Console.Write("Имя: ");
+            string firstName = Console.ReadLine();
+            Console.Write("Фамилия: ");
+            string secondName = Console.ReadLine();
+            Console.Write("Год рождения: ");
+            int yearOfBirth = int.Parse(Console.ReadLine());
+
+            while (!enterPassengerData.VerifyInputData(yearOfBirth)) {
+                yearOfBirth = int.Parse(Console.ReadLine());
+            }
+
+            enterPassengerData.SavePassengerData(firstName, secondName, yearOfBirth);
         }
     }
 }

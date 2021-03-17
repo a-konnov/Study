@@ -2,23 +2,31 @@
 
 namespace AviaTickets {
     public class CalculateDistance {
-        public float LatitudeDepartureCity;
-        public float LongitudeDepartureCity;
+        private float _latitudeDepartureCity;
+        private float _longitudeDepartureCity;
         
-        public float LatitudeArriveCity;
-        public float LongitudeArriveCity;
+        private float _latitudeArriveCity;
+        private float _longitudeArriveCity;
+        
+        private float _deltaLatitude;
+        private float _deltaLongitude;
+        
+        const int EARTH_RADIUS = 6372795;
 
         public CalculateDistance(float latitude_A, float longitude_A, float latitude_B, float longitude_B) {
-            LatitudeDepartureCity = ConvertToRadian(latitude_A);
-            LongitudeDepartureCity = ConvertToRadian(longitude_A);
-            LatitudeArriveCity = ConvertToRadian(latitude_B);
-            LongitudeArriveCity = ConvertToRadian(longitude_B);
+            _latitudeDepartureCity = ConvertToRadian(latitude_A);
+            _longitudeDepartureCity = ConvertToRadian(longitude_A);
+            _latitudeArriveCity = ConvertToRadian(latitude_B);
+            _longitudeArriveCity = ConvertToRadian(longitude_B);
 
-            Console.WriteLine(Calcul() + " km");
+            _deltaLatitude = Math.Abs(_latitudeDepartureCity - _latitudeArriveCity);
+            _deltaLongitude = Math.Abs(_longitudeDepartureCity - _longitudeArriveCity);
+            
+            Console.WriteLine(GetDistanceResult() + " km");
         }
 
         private float ConvertToRadian(float angle) {
-            return angle * (3.14f / 180);
+            return angle * (3.14f / 180); // по формуле перевода градусов в радианы
         }
 
         private double GetSinusAngle(float angle) {
@@ -29,18 +37,10 @@ namespace AviaTickets {
             return Math.Cos(angle);
         }
 
-        private float DeltaLatitude() {
-            return Math.Abs(LatitudeDepartureCity - LatitudeArriveCity);
-        }
-
-        private float DeltaLongitude() {
-            return Math.Abs(LongitudeDepartureCity - LongitudeArriveCity);
-        }
-
-        private double Calcul() {
-            var asin = 2 * Math.Asin(Math.Sqrt(Math.Pow(GetSinusAngle(DeltaLatitude() / 2), 2) + (GetCosineAngle(LatitudeDepartureCity) * GetCosineAngle(LatitudeArriveCity) * Math.Pow(GetSinusAngle(DeltaLongitude() / 2), 2)))); // ответ получается в радианах
-            var distanceKm = Math.Round(asin * 6372795 / 1000);
-            return distanceKm;
+        private double GetDistanceResult() { //знаю, что формула расчета сложночитаема
+            var centerAngle = 2 * Math.Asin(Math.Sqrt(Math.Pow(GetSinusAngle(_deltaLatitude / 2), 2) + (GetCosineAngle(_latitudeDepartureCity) * GetCosineAngle(_latitudeArriveCity) * Math.Pow(GetSinusAngle(_deltaLongitude / 2), 2)))); // ответ получается в радианах
+            var distance = Math.Round(centerAngle * EARTH_RADIUS / 1000); // переводим в километры
+            return distance;
         }
     }
 }
