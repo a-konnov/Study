@@ -7,7 +7,6 @@ namespace AviaTickets {
         private static Ticket _ticket = new Ticket();
 
         public static void Main(string[] args) {
-            Cities cities = new Cities();
             UserInterface();
             ShowAllCities();
             SelectRouteCities();
@@ -58,6 +57,8 @@ namespace AviaTickets {
             int yearOfBirth = int.Parse(Console.ReadLine());
 
             while (!enterPassengerData.VerifyInputData(yearOfBirth)) {
+                Console.WriteLine("Вы ввели некорректный год рождения. Повторите попытку"); 
+                Console.Write("Год рождения: ");
                 yearOfBirth = int.Parse(Console.ReadLine());
             }
 
