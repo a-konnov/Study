@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Runtime.Remoting.Metadata.W3cXsd2001;
 
 namespace AviaTickets {
     internal class Program {
-        private static Cities _cities = new Cities();
         private static Ticket _ticket = new Ticket();
 
         public static void Main(string[] args) {
@@ -25,29 +23,34 @@ namespace AviaTickets {
             if (answer == 1) {
                 Console.Clear();
                 UserInterface();
-                _cities.PrintAllCities();
+                Console.WriteLine(CitiesManager.PrintAllCities());
             }
         }
 
         private static void SelectRouteCities() {
             Console.WriteLine("Выберите номер города отправления");
             int selectedDepartureNumber = int.Parse(Console.ReadLine());
-            string selectedDepartureCity = _cities.AllCitiesInfo[selectedDepartureNumber - 1].Name;
+            string selectedDepartureCity = CitiesManager.AllCitiesInfo[selectedDepartureNumber - 1].Name;
             Console.WriteLine($"Город отправления - {selectedDepartureCity}");
             
             
             Console.WriteLine("Выберите номер города прибытия");
             int selectedArriveNumber = int.Parse(Console.ReadLine());
-            string selectedArriveCity = _cities.AllCitiesInfo[selectedArriveNumber - 1].Name;
+            string selectedArriveCity = CitiesManager.AllCitiesInfo[selectedArriveNumber - 1].Name;
             Console.WriteLine($"Город прибытия - {selectedArriveCity}");
 
-            new CalculateDistance(_cities.AllCitiesInfo[selectedDepartureNumber - 1].Coordinates.X, _cities.AllCitiesInfo[selectedDepartureNumber - 1].Coordinates.Y, _cities.AllCitiesInfo[selectedArriveNumber - 1].Coordinates.X, _cities.AllCitiesInfo[selectedArriveNumber - 1].Coordinates.Y);
-            
+            var distance = MathCalculations.CalculateDistance(
+                CitiesManager.AllCitiesInfo[selectedDepartureNumber - 1].Coordinates.X, 
+                CitiesManager.AllCitiesInfo[selectedDepartureNumber - 1].Coordinates.Y, 
+                CitiesManager.AllCitiesInfo[selectedArriveNumber - 1].Coordinates.X, 
+                CitiesManager.AllCitiesInfo[selectedArriveNumber - 1].Coordinates.Y);
+            Console.WriteLine(distance + "km.");
+
             Console.WriteLine(_ticket.ShowTicketInfo("bb", "dd", selectedDepartureCity, selectedArriveCity));
         }
 
         private static void InputPassengerData() {
-            EnterPassengerData enterPassengerData = new EnterPassengerData();
+            EnterPassenger enterPassenger = new EnterPassenger();
             
             Console.Write("Имя: ");
             string firstName = Console.ReadLine();
@@ -56,13 +59,13 @@ namespace AviaTickets {
             Console.Write("Год рождения: ");
             int yearOfBirth = int.Parse(Console.ReadLine());
 
-            while (!enterPassengerData.VerifyInputData(yearOfBirth)) {
+            while (!enterPassenger.VerifyInputData(yearOfBirth)) {
                 Console.WriteLine("Вы ввели некорректный год рождения. Повторите попытку"); 
                 Console.Write("Год рождения: ");
                 yearOfBirth = int.Parse(Console.ReadLine());
             }
 
-            enterPassengerData.SavePassengerData(firstName, secondName, yearOfBirth);
+            enterPassenger.SavePassengerData(firstName, secondName, yearOfBirth);
         }
     }
 }
