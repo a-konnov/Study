@@ -2,7 +2,7 @@
 
 namespace AviaTickets {
     internal class Program {
-        private static Ticket _ticket = new Ticket();
+        private static TicketManager _ticketManager = new TicketManager();
 
         public static void Main(string[] args) {
             UserInterface();
@@ -46,7 +46,7 @@ namespace AviaTickets {
                 CitiesManager.AllCitiesInfo[selectedArriveNumber - 1].Coordinates.Y);
             Console.WriteLine(distance + "km.");
 
-            Console.WriteLine(_ticket.ShowTicketInfo("bb", "dd", selectedDepartureCity, selectedArriveCity));
+            Console.WriteLine(_ticketManager.ShowTicketInfo("bb", "dd", selectedDepartureCity, selectedArriveCity));
         }
 
         private static void InputPassengerData() {
