@@ -2,7 +2,7 @@
 
 namespace AviaTickets {
     public class TownInfo {
-        public string Name { get; private set; }
+        public string Name { get; }
         public Vector2 Coordinates; // десятичные градусы
 
         public TownInfo(string name, float latitude, float longitude) {

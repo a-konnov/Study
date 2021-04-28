@@ -2,13 +2,13 @@
 
 namespace AviaTickets {
     internal class Program {
-        private static TicketManager _ticketManager = new TicketManager();
-
+        private static InputData _inputData = new InputData();
         public static void Main(string[] args) {
             UserInterface();
             ShowAllCities();
             SelectRouteCities();
             InputPassengerData();
+            SaveInputDataInTicket();
             Console.ReadLine();
         }
         private static void UserInterface() {
@@ -19,53 +19,64 @@ namespace AviaTickets {
 
         private static void ShowAllCities() {
             Console.WriteLine("Отобразить список доступных городов ?\n 1 - Да \t 0 - Нет");
-            int answer = int.Parse(Console.ReadLine());
+            var answer = int.Parse(Console.ReadLine());
             if (answer == 1) {
                 Console.Clear();
                 UserInterface();
-                Console.WriteLine(CitiesManager.PrintAllCities());
+                Console.WriteLine(AppFacade.CitiesManager.GetCitiesList());
             }
         }
 
         private static void SelectRouteCities() {
             Console.WriteLine("Выберите номер города отправления");
-            int selectedDepartureNumber = int.Parse(Console.ReadLine());
-            string selectedDepartureCity = CitiesManager.AllCitiesInfo[selectedDepartureNumber - 1].Name;
+            var selectedDepartureNumber = int.Parse(Console.ReadLine());
+            var selectedDepartureCity = AppFacade.CitiesManager.AllCitiesInfo[selectedDepartureNumber - 1].Name;
+            _inputData.SelectedDepartureCity = selectedDepartureCity;
             Console.WriteLine($"Город отправления - {selectedDepartureCity}");
             
             
             Console.WriteLine("Выберите номер города прибытия");
-            int selectedArriveNumber = int.Parse(Console.ReadLine());
-            string selectedArriveCity = CitiesManager.AllCitiesInfo[selectedArriveNumber - 1].Name;
-            Console.WriteLine($"Город прибытия - {selectedArriveCity}");
+            var selectedArrivalNumber = int.Parse(Console.ReadLine());
+            var selectedArrivalCity = AppFacade.CitiesManager.AllCitiesInfo[selectedArrivalNumber - 1].Name;
+            _inputData.SelectedArrivalCity = selectedArrivalCity;
+            Console.WriteLine($"Город прибытия - {selectedArrivalCity}");
 
+            var departureCoordinats = AppFacade.CitiesManager.AllCitiesInfo[selectedDepartureNumber - 1];
+            var arrivalCoordinats = AppFacade.CitiesManager.AllCitiesInfo[selectedArrivalNumber - 1];
+            
             var distance = MathCalculations.CalculateDistance(
-                CitiesManager.AllCitiesInfo[selectedDepartureNumber - 1].Coordinates.X, 
-                CitiesManager.AllCitiesInfo[selectedDepartureNumber - 1].Coordinates.Y, 
-                CitiesManager.AllCitiesInfo[selectedArriveNumber - 1].Coordinates.X, 
-                CitiesManager.AllCitiesInfo[selectedArriveNumber - 1].Coordinates.Y);
-            Console.WriteLine(distance + "km.");
-
-            Console.WriteLine(_ticketManager.ShowTicketInfo("bb", "dd", selectedDepartureCity, selectedArriveCity));
+                departureCoordinats.Coordinates.X, 
+                departureCoordinats.Coordinates.Y,
+                arrivalCoordinats.Coordinates.X, 
+                arrivalCoordinats.Coordinates.Y);
+            _inputData.Distance = distance;
         }
 
         private static void InputPassengerData() {
-            EnterPassenger enterPassenger = new EnterPassenger();
-            
             Console.Write("Имя: ");
-            string firstName = Console.ReadLine();
+            var firstName = Console.ReadLine();
+            _inputData.FirstName = firstName;
+            
             Console.Write("Фамилия: ");
-            string secondName = Console.ReadLine();
+            var secondName = Console.ReadLine();
+            _inputData.SecondName = secondName;
+            
             Console.Write("Год рождения: ");
-            int yearOfBirth = int.Parse(Console.ReadLine());
+            var yearOfBirth = int.Parse(Console.ReadLine());
 
-            while (!enterPassenger.VerifyInputData(yearOfBirth)) {
-                Console.WriteLine("Вы ввели некорректный год рождения. Повторите попытку"); 
+            while (!PassengerData.VerifyInputBirthday(yearOfBirth)) {
+                Console.WriteLine("Вы ввели некорректный год рождения. Повторите попытку");
                 Console.Write("Год рождения: ");
                 yearOfBirth = int.Parse(Console.ReadLine());
+                _inputData.YearOfBirth = yearOfBirth;
             }
+            
+            AppFacade.PasssengerManager.Init().SavePassengerData(firstName, secondName, yearOfBirth);
+        }
 
-            enterPassenger.SavePassengerData(firstName, secondName, yearOfBirth);
+        private static void SaveInputDataInTicket() {
+            var ticket = AppFacade.TicketManager.ShowTicketInfo(_inputData.FirstName, _inputData.SecondName, _inputData.SelectedDepartureCity, _inputData.SelectedArrivalCity, _inputData.Distance);
+            Console.WriteLine(ticket);
         }
     }
 }
