@@ -11,6 +11,7 @@ namespace AviaTickets {
             SaveInputDataInTicket();
             Console.ReadLine();
         }
+        
         private static void UserInterface() {
             Console.Write("******************************************************\n");
             Console.Write("\t\t Покупка билетов");
@@ -45,10 +46,10 @@ namespace AviaTickets {
             var arrivalCoordinats = AppFacade.CitiesManager.AllCitiesInfo[selectedArrivalNumber - 1];
             
             var distance = MathCalculations.CalculateDistance(
-                departureCoordinats.Coordinates.X, 
-                departureCoordinats.Coordinates.Y,
-                arrivalCoordinats.Coordinates.X, 
-                arrivalCoordinats.Coordinates.Y);
+                departureCoordinats.Latitude, 
+                departureCoordinats.Longitude,
+                arrivalCoordinats.Latitude, 
+                arrivalCoordinats.Longitude);
             _inputData.Distance = distance;
         }
 
@@ -75,7 +76,12 @@ namespace AviaTickets {
         }
 
         private static void SaveInputDataInTicket() {
-            var ticket = AppFacade.TicketManager.ShowTicketInfo(_inputData.FirstName, _inputData.SecondName, _inputData.SelectedDepartureCity, _inputData.SelectedArrivalCity, _inputData.Distance);
+            var ticket = AppFacade.TicketManager.ShowTicketInfo(
+                _inputData.FirstName, 
+                _inputData.SecondName, 
+                _inputData.SelectedDepartureCity, 
+                _inputData.SelectedArrivalCity, 
+                _inputData.Distance);
             Console.WriteLine(ticket);
         }
     }

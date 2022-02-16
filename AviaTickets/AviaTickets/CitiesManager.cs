@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace AviaTickets {
     public class CitiesManager {
@@ -11,6 +12,8 @@ namespace AviaTickets {
             new TownInfo("Tbilisi", 41.878758218043686f, 44.72068437454439f)
         };
 
+        public Dictionary<string, TownInfo> CitiesList = new Dictionary<string, TownInfo>();
+
         public string GetCitiesList() {
             var numberOfCity = 1;
             var cityName = "";
@@ -22,11 +25,23 @@ namespace AviaTickets {
         }
 
         public void AddCity(string name, float latitude, float longitude) {
-            AllCitiesInfo.Add(new TownInfo(name, latitude, longitude));
+            var newCityID = IdentificationCreator.GenerateNewCityID(name, latitude, longitude);
+            //AllCitiesInfo.Add(new TownInfo(name, latitude, longitude));
+
+            if (!IsCityAlreadyAdded(newCityID)) {
+                CitiesList.Add(newCityID, new TownInfo(name, latitude, longitude));
+            } else {
+                Console.WriteLine("Город уже существует в списке");
+            }
+
         }
         
         public void RemoveCity(int id) {
             AllCitiesInfo.Remove(AllCitiesInfo[id - 1]);
+        }
+
+        private bool IsCityAlreadyAdded(string cityID) {
+            return CitiesList.ContainsKey(cityID);
         }
     }
 }
