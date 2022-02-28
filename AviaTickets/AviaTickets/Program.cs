@@ -24,7 +24,7 @@ namespace AviaTickets {
             if (answer == 1) {
                 Console.Clear();
                 UserInterface();
-                Console.WriteLine(AppFacade.CitiesManager.GetCitiesList());
+                Console.WriteLine(AppFacade.CitiesManager.GetCitiesList1());
             }
         }
 
