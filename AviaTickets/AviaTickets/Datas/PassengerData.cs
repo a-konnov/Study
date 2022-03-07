@@ -13,7 +13,5 @@
         public static bool VerifyInputBirthday(int yearOfBirth) {
             return yearOfBirth > 1920 && yearOfBirth <= 2021;
         }
-        
-        
     }
 }

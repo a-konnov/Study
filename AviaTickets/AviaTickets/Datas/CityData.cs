@@ -2,12 +2,12 @@
 using System.Numerics;
 
 namespace AviaTickets {
-    public class CityInfo {
+    public class CityData {
         public string Name { get; }
-        public float Latitude { get; private set; }
-        public float Longitude { get; private set; }
+        public float Latitude { get; }
+        public float Longitude { get; }
 
-        public CityInfo(string name, float latitude, float longitude) {
+        public CityData(string name, float latitude, float longitude) {
             Latitude = latitude;
             Longitude = longitude;
             Name = name;
