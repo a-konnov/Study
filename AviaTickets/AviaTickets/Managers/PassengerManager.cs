@@ -1,23 +1,26 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace AviaTickets {
     public class PassengerManager {
-        private Dictionary<int, PassengerData> Passengers = new Dictionary<int, PassengerData>();
+        private Dictionary<int, PassengerData> _passengers = new Dictionary<int, PassengerData>();
 
-        private int _passengerID = 1;
-
-        public void AddPassenger(PassengerData passengerData) {
-            Passengers.Add(_passengerID, passengerData);
-
-            _passengerID++;
+        public void AddPassenger(string firstName, string secondName, int yearOfBirth, int passengerId) {
+            var newPassengerData = new PassengerData(firstName, secondName, yearOfBirth, passengerId);
+            _passengers.Add(passengerId, newPassengerData);
         }
 
-        public PassengerData GetPassengerInfo(int passengerID) {
-            return Passengers[passengerID];
+        public PassengerData GetData(int passengerID) {
+            return _passengers.ContainsKey(passengerID) ? _passengers[passengerID] : throw new Exception("Doesn't contains this ID");
         }
 
         public void RemovePassenger(int passengerID) {
-            Passengers.Remove(passengerID);
+            _passengers.Remove(passengerID);
+            if (_passengers.ContainsKey(passengerID)) {
+                _passengers.Remove(passengerID);
+            }
+
+            throw new Exception("Doesn't contains this ID");
         }
     }
 }

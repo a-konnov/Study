@@ -6,11 +6,13 @@ namespace AviaTickets {
         public string Name { get; }
         public float Latitude { get; }
         public float Longitude { get; }
+        public int Id { get; }
 
-        public CityData(string name, float latitude, float longitude) {
+        public CityData(string name, float latitude, float longitude, int id) {
             Latitude = latitude;
             Longitude = longitude;
             Name = name;
+            Id = id;
         }
     }
 }
