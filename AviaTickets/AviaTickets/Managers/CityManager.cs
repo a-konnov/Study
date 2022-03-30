@@ -7,33 +7,41 @@ namespace AviaTickets {
 
         public void AddCity(string name, float latitude, float longitude, int id) {
             CityData newCityData = new CityData(name, latitude, longitude, id);
-            if (!IsCityAlreadyAdded(newCityData)) {
-                _cities.Add(id, newCityData);
-            } else {
-                throw new Exception("This city is already added");
-            }
+            _cities.Add(id, newCityData);
         }
 
+        public bool HasData(int cityId) {
+            return _cities.ContainsKey(cityId);
+        }
+        
         public CityData GetData(int cityId) {
-            return _cities.ContainsKey(cityId) ? _cities[cityId] : throw new Exception("Doesn't contains this ID");
+            return _cities.ContainsKey(cityId) ? _cities[cityId] : null;
         }
 
-        public void RemoveCity(int cityId) {
-            if (_cities.ContainsKey(cityId)) {
-                _cities.Remove(cityId);
-            }
-
-            throw new Exception("Doesn't contains this ID");
+        public int GetCitiesCount() {
+            return _cities.Count;
         }
 
-        private bool IsCityAlreadyAdded(CityData cityData) {
-            foreach (var addedCity in _cities) {
-                if (cityData.Latitude == addedCity.Value.Latitude && cityData.Longitude == addedCity.Value.Longitude) {
-                    return true;
-                }
+        public void GetAvailableCitiesList() {
+            int counter = 1;
+            foreach (var city in _cities) {
+                Console.WriteLine($"{counter}. {city.Value.Name}");
+                counter++;
             }
+        }
 
-            return false;
+        public double GetDistance(int departureCityId, int arriveCityId) {
+            var departureCity = _cities[departureCityId];
+            var arriveCity = _cities[arriveCityId];
+            var distance = MathCalculations.CalculateDistance(departureCity.Longitude, departureCity.Latitude, arriveCity.Longitude, arriveCity.Latitude);
+
+            return distance;
+        }
+
+        public void PrintData(int cityId) {
+            var cityData = _cities[cityId];
+            
+            Console.WriteLine($"City: {cityData.Name} \n Coordinates: {cityData.Latitude}{cityData.Longitude}");
         }
     }
 }

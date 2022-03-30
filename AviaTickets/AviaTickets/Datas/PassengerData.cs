@@ -3,22 +3,22 @@ using System.Data;
 
 namespace AviaTickets {
     public class PassengerData {
+        public int Id { get; }
         public string FirstName { get; }
         public string SecondName { get; }
         public int YearOfBirth { get; }
-        public int Id { get; }
 
         public PassengerData(string firstName, string secondName, int yearOfBirth, int passengerId) {
+            Id = passengerId;
             FirstName = firstName;
             SecondName = secondName;
 
             if (VerifyInputBirthday(yearOfBirth)) {
                 YearOfBirth = yearOfBirth;
             } else {
-                throw new Exception("Doesn't contains this ID");
+                Console.WriteLine("Incorrect year");
+                YearOfBirth = 1920;
             }
-            
-            Id = passengerId;
         }
         
         public static bool VerifyInputBirthday(int yearOfBirth) {

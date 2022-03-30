@@ -9,18 +9,22 @@ namespace AviaTickets {
             var newPassengerData = new PassengerData(firstName, secondName, yearOfBirth, passengerId);
             _passengers.Add(passengerId, newPassengerData);
         }
-
-        public PassengerData GetData(int passengerID) {
-            return _passengers.ContainsKey(passengerID) ? _passengers[passengerID] : throw new Exception("Doesn't contains this ID");
+        public bool HasData(int passengerId) {
+            return _passengers.ContainsKey(passengerId);
         }
 
-        public void RemovePassenger(int passengerID) {
-            _passengers.Remove(passengerID);
-            if (_passengers.ContainsKey(passengerID)) {
-                _passengers.Remove(passengerID);
-            }
-
-            throw new Exception("Doesn't contains this ID");
+        public PassengerData GetData(int passengerId) {
+            return _passengers.ContainsKey(passengerId) ? _passengers[passengerId] : null;
+        }
+        
+        public int GetPassengersCount() {
+            return _passengers.Count;
+        }
+        
+        public void PrintData(int passengerId) {
+            var passengerData = _passengers[passengerId];
+            
+            Console.WriteLine($"Passenger: {passengerData.FirstName} {passengerData.SecondName} \n Year Of Birth: {passengerData.YearOfBirth}");
         }
     }
 }
