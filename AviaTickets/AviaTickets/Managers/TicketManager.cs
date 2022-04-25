@@ -6,11 +6,12 @@ namespace AviaTickets {
     public class TicketManager {
         private readonly Dictionary<int, TicketData> _tickets = new Dictionary<int, TicketData>();
 
-        private PassengerManager _passengerData = AppFacade.PassengerManager;
+        private PassengerManager _passengerManager = AppFacade.PassengerManager;
         private CityManager _cityManager = AppFacade.CityManager;
 
         public void AddTicket(int passengerId, int departureCityId, int arriveCityId, int ticketId) {
             TicketData newTicketData = new TicketData(passengerId, departureCityId, arriveCityId, ticketId);
+            
         }
         
         public bool HasData(int ticketId) {
@@ -28,7 +29,7 @@ namespace AviaTickets {
         public void PrintData(int ticketId) {
             var ticketData = _tickets[ticketId];
             
-            var passengerData = _passengerData.GetData(ticketData.PassengerId);
+            var passengerData = _passengerManager.GetData(ticketData.PassengerId);
             var departureCityData = _cityManager.GetData(ticketData.DepartureCityId);
             var arrivalCityData = _cityManager.GetData(ticketData.ArrivalCityId);
             var distance = _cityManager.GetDistance(ticketData.DepartureCityId, ticketData.ArrivalCityId);

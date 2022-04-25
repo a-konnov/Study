@@ -4,6 +4,7 @@ using System.Collections.Generic;
 namespace AviaTickets {
     public class CityManager {
         private readonly Dictionary<int, CityData> _cities = new Dictionary<int, CityData>();
+        public int GetCitiesCount => _cities.Count;
 
         public void AddCity(string name, float latitude, float longitude, int id) {
             CityData newCityData = new CityData(name, latitude, longitude, id);
@@ -16,10 +17,6 @@ namespace AviaTickets {
         
         public CityData GetData(int cityId) {
             return _cities.ContainsKey(cityId) ? _cities[cityId] : null;
-        }
-
-        public int GetCitiesCount() {
-            return _cities.Count;
         }
 
         public void GetAvailableCitiesList() {

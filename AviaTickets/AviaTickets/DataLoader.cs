@@ -9,12 +9,12 @@ namespace AviaTickets {
         private void LoadCities() {
             var cityManager = AppFacade.CityManager;
             
-            cityManager.AddCity("Moscow", 55.75f, 37.61f, cityManager.GetCitiesCount());
-            cityManager.AddCity("New York", 40.71f, -74.00f, cityManager.GetCitiesCount());
-            cityManager.AddCity("Madrid", 40.49f, -3.73f, cityManager.GetCitiesCount());
-            cityManager.AddCity("Oslo", 59.99f, 10.74f, cityManager.GetCitiesCount());
-            cityManager.AddCity("London", 51.75f, -0.23f, cityManager.GetCitiesCount());
-            cityManager.AddCity("Tbilisi", 41.87f, 44.72f, cityManager.GetCitiesCount());
+            cityManager.AddCity("Moscow", 55.75f, 37.61f, cityManager.GetCitiesCount);
+            cityManager.AddCity("New York", 40.71f, -74.00f, cityManager.GetCitiesCount);
+            cityManager.AddCity("Madrid", 40.49f, -3.73f, cityManager.GetCitiesCount);
+            cityManager.AddCity("Oslo", 59.99f, 10.74f, cityManager.GetCitiesCount);
+            cityManager.AddCity("London", 51.75f, -0.23f, cityManager.GetCitiesCount);
+            cityManager.AddCity("Tbilisi", 41.87f, 44.72f, cityManager.GetCitiesCount);
         }
 
         private void LoadPassengers() {
